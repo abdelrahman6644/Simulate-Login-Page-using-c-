@@ -158,16 +158,24 @@ Assistant_Teacher ATT[3] = {
 };
 
 void loginPage(string& Email, string& Password) {
+    cout << "Hello, This Program is to show the Student or Teacher or Assistant Teacher in our Faculty\n";
+    cout << "-----------------------------------------------------------------------------------------\n";
     cout << "Email: "; cin >> Email;
     cout << "Password: "; cin >> Password;
 }
 
+
+void showOptions() {
+    cout << "Choose what you need :\n";
+    cout << "1.Edit Name\n";
+    cout << "2.Edit Age\n";
+    cout << "3.Edit Mail \n";
+    cout << "4.Edit Password\n";
+}
 int main() {
     string Email, Password;
     bool ccheck = true;
     while (ccheck) {
-        cout << "Hello, This Program is to show the Student or Teacher or Assistant Teacher in our Faculty\n";
-        cout << "-----------------------------------------------------------------------------------------\n";
         loginPage(Email, Password);
         string check;
         int index;
@@ -175,13 +183,9 @@ int main() {
             ss[index].Print();
             cout << "Are you need to edit your Details (yes/no)? : "; cin >> check;
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
-                while(true){
+                while (true) {
                     int num;
-                    cout << "Choose what you need :\n";
-                    cout << "1.Edit Name\n";
-                    cout << "2.Edit Age\n";
-                    cout << "3.Edit Mail \n";
-                    cout << "4.Edit Password\n";
+                    showOptions();
                     cin >> num;
                     if (num == 1) {
                         cout << "type edited name : ";
@@ -226,16 +230,12 @@ int main() {
         }
         else if ((index = findinteacher(TT, 3, Email, Password)) != -1) {
             TT[index].Print();
-            
+
             cout << "Are you need to edit your Details (yes/no)? : "; cin >> check;
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
                 while (true) {
                     int num;
-                    cout << "Choose what you need :\n";
-                    cout << "1.Edit Name\n";
-                    cout << "2.Edit Age\n";
-                    cout << "3.Edit Mail \n";
-                    cout << "4.Edit Password\n";
+                    showOptions();
                     cin >> num;
                     if (num == 1) {
                         cout << "type edited name : ";
@@ -284,11 +284,7 @@ int main() {
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
                 while (true) {
                     int num;
-                    cout << "Choose what you need :\n";
-                    cout << "1.Edit Name\n";
-                    cout << "2.Edit Age\n";
-                    cout << "3.Edit Mail \n";
-                    cout << "4.Edit Password\n";
+                    showOptions();
                     cin >> num;
                     if (num == 1) {
                         cout << "type edited name : ";
