@@ -16,7 +16,6 @@ public:
         Name(name), Age(age), Gender(gender), Mail(mail), Password(pass) {}
     void EditName(string name) { Name = name; }
     void EditAge(int age) { Age = age; }
-    void EditGender(char gender) { Gender = gender; }
     void EditMail(string mail) { Mail = mail; }
     void EditPassword(string pass) { Password = pass; }
     void Print() {
@@ -33,8 +32,6 @@ protected:
 public:
     Student(string name, int age, char gender, string mail, string pass, float gpa, string level) :
         Person(name, age, gender, mail, pass), GPA(gpa), Level(level) {}
-    void EditGPA(float gpa) { GPA = gpa; }
-    void EditLevel(string level) { Level = level; }
     void Print() {
         cout << "Welcome, " << Name << endl;
         cout << "There are your details\n";
@@ -53,8 +50,6 @@ protected:
 public:
     Teacher(string name, int age, char gender, string mail, string pass, float salary, array<string, 5> materials, int no) :
         Person(name, age, gender, mail, pass), Salary(salary), Materials(materials), NoOfMaterials(no) {}
-    void EditSalary(float salary) { Salary = salary; }
-    void EditMaterials(string material, int index) { Materials[index] = material; }
     void Print() {
         cout << "Welcome, Doctor " << Name << endl;
         cout << "There are your details\n";
@@ -177,24 +172,160 @@ int main() {
         string check;
         int index;
         if ((index = findinstudent(ss, 10, Email, Password)) != -1) {
-            cout << "Hello, Student\n";
             ss[index].Print();
-            cout << "Exit??(yes/no)"; cin >> check;
+            cout << "Are you need to edit your Details (yes/no)? : "; cin >> check;
+            if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
+                while(true){
+                    int num;
+                    cout << "Choose what you need :\n";
+                    cout << "1.Edit Name\n";
+                    cout << "2.Edit Age\n";
+                    cout << "3.Edit Mail \n";
+                    cout << "4.Edit Password\n";
+                    cin >> num;
+                    if (num == 1) {
+                        cout << "type edited name : ";
+                        string name;
+                        cin >> name;
+                        ss[index].EditName(name);
+                    }
+                    else if (num == 2) {
+                        cout << "type edited Age : ";
+                        int age;
+                        cin >> age;
+                        ss[index].EditAge(age);
+                    }
+                    else if (num == 3) {
+                        cout << "type edited Mail : ";
+                        string mail;
+                        cin >> mail;
+                        ss[index].EditMail(mail);
+                    }
+                    else if (num == 4) {
+                        cout << "type edited Password : ";
+                        string Password;
+                        cin >> Password;
+                        ss[index].EditPassword(Password);
+                    }
+                    else {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                    cout << "Edit anyelse (yes/no)??";
+                    cin >> check;
+                    if (!(check == "yes" || check == "YES" || check == "Y" || check == "y")) {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                }
+            }
+            cout << "Exit??(yes/no) : "; cin >> check;
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
                 return 0;
             }
         }
         else if ((index = findinteacher(TT, 3, Email, Password)) != -1) {
-            cout << "Hello, Doctor\n";
             TT[index].Print();
+            
+            cout << "Are you need to edit your Details (yes/no)? : "; cin >> check;
+            if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
+                while (true) {
+                    int num;
+                    cout << "Choose what you need :\n";
+                    cout << "1.Edit Name\n";
+                    cout << "2.Edit Age\n";
+                    cout << "3.Edit Mail \n";
+                    cout << "4.Edit Password\n";
+                    cin >> num;
+                    if (num == 1) {
+                        cout << "type edited name : ";
+                        string name;
+                        cin >> name;
+                        TT[index].EditName(name);
+                    }
+                    else if (num == 2) {
+                        cout << "type edited Age : ";
+                        int age;
+                        cin >> age;
+                        TT[index].EditAge(age);
+                    }
+                    else if (num == 3) {
+                        cout << "type edited Mail : ";
+                        string mail;
+                        cin >> mail;
+                        TT[index].EditMail(mail);
+                    }
+                    else if (num == 4) {
+                        cout << "type edited Password : ";
+                        string Password;
+                        cin >> Password;
+                        TT[index].EditPassword(Password);
+                    }
+                    else {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                    cout << "Edit anyelse (yes/no)??";
+                    cin >> check;
+                    if (!(check == "yes" || check == "YES" || check == "Y" || check == "y")) {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                }
+            }
             cout << "Exit??(yes/no)"; cin >> check;
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
                 return 0;
             }
         }
         else if ((index = findinassistant(ATT, 3, Email, Password)) != -1) {
-            cout << "Hello, Assistant Teacher\n";
             ATT[index].Print();
+            cout << "Are you need to edit your Details (yes/no)? : "; cin >> check;
+            if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
+                while (true) {
+                    int num;
+                    cout << "Choose what you need :\n";
+                    cout << "1.Edit Name\n";
+                    cout << "2.Edit Age\n";
+                    cout << "3.Edit Mail \n";
+                    cout << "4.Edit Password\n";
+                    cin >> num;
+                    if (num == 1) {
+                        cout << "type edited name : ";
+                        string name;
+                        cin >> name;
+                        ATT[index].EditName(name);
+                    }
+                    else if (num == 2) {
+                        cout << "type edited Age : ";
+                        int age;
+                        cin >> age;
+                        ATT[index].EditAge(age);
+                    }
+                    else if (num == 3) {
+                        cout << "type edited Mail : ";
+                        string mail;
+                        cin >> mail;
+                        ATT[index].EditMail(mail);
+                    }
+                    else if (num == 4) {
+                        cout << "type edited Password : ";
+                        string Password;
+                        cin >> Password;
+                        ATT[index].EditPassword(Password);
+                    }
+                    else {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                    cout << "Edit anyelse (yes/no)??";
+                    cin >> check;
+                    if (!(check == "yes" || check == "YES" || check == "Y" || check == "y")) {
+                        cout << "-----------------------------------------------------\n";
+                        break;
+                    }
+                }
+            }
             cout << "Exit??(yes/no)"; cin >> check;
             if (check == "yes" || check == "YES" || check == "Y" || check == "y") {
                 return 0;
